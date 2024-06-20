@@ -3,8 +3,7 @@ name: Build conda docker images
 on:
   push:
     branches:
-      - main
-      - release/*
+      - '*'
     tags:
       # NOTE: Binary build pipelines should only get triggered on release candidate or nightly builds
       # Release candidate tags look like: v1.11.0-rc1
@@ -18,7 +17,7 @@ on:
       - conda/Dockerfile
       - 'common/*'
       - .github/workflows/build-conda-images.yml
-
+ 
 env:
   DOCKER_REGISTRY: "docker.io"
   DOCKER_BUILDKIT: 1
